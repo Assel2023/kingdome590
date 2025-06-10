@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>آلة حساب كمية التسريعة</title>
+  <style>
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: linear-gradient(to bottom, #111, #222);
+      color: white;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    nav {
+        display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background: transparent;
+  width: 100%;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+
+}
+
+
+    nav a {
+      color: #FFD700;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    header {
+      text-align: center;
+      margin-top: 80px;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      color: #FFD700;
+      margin-bottom: 10px;
+    }
+
+        form {
+  background: #333;
+  padding: 30px 20px; /* 30px أعلى وأسفل، 20px يمين ويسار */
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+  max-width: 1000px;
+  width: 100%;
+  margin-top: 30px;
+  box-sizing: border-box; /* حتى لا يتجاوز العرض الكامل */
+}
+
+      
+ 
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+      gap: 20px;
+      justify-items: center;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .field img {
+      width: 50px;
+      height: 50px;
+      margin-bottom: 5px;
+      border-radius: 10px;
+    }
+
+    .field input[type="number"] {
+      width: 70px;
+      padding: 5px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1em;
+      text-align: center;
+    }
+
+    .field label {
+      margin-top: 5px;
+      font-size: 0.9em;
+      color: #FFD700;
+    }
+
+    button {
+      width: 100%;
+      padding: 15px;
+      font-size: 1.2em;
+      background-color: #FFD700;
+      border: none;
+      color: black;
+      font-weight: bold;
+      border-radius: 10px;
+      cursor: pointer;
+      margin-top: 30px;
+    }
+
+    .result {
+      margin-top: 20px;
+      font-size: 1.3em;
+      text-align: center;
+    }
+
+    .logo-img {
+    width: 25vw; /* 25% من عرض الشاشة */
+    max-width: 300px;
+    height: auto;
+}
+
+.logo-text {
+    color: gold;
+    font-size: 2.5vw; /* يتغير حسب حجم الشاشة */
+    font-weight: bold;
+    margin-top: 10px;
+    font-family: 'Cairo', sans-serif; /* خط عربي أنيق */
+}
+
+@media (max-width: 768px) {
+    .logo-img {
+        width: 100vw;
+    }
+    .logo-text {
+        font-size: 5vw;
+    }
+}
+  </style>
+</head>
+<body>
+    <nav style="display: flex; flex-direction: row-reverse; justify-content: space-between; align-items: center; width: 100%; padding: 20px 30px;">
+        <!-- الشعار في اليسار -->
+        <img src="/img/ChatGPT Image Jun 9, 2025, 08_24_28 PM.png"
+        alt="KINGDOM590 Logo"
+        style="height: 80px; max-height: 15vh;">
+ 
+   <!-- الروابط على اليمين -->
+   <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+     <a href="index.html" style="color: #FFD700; text-decoration: none; font-weight: bold;">الرئيسية</a>
+     <a href="about.html" style="color: #FFD700; text-decoration: none; font-weight: bold;">من نحن</a>
+   </div>
+      </nav>
+
+      
+      <div style="text-align: center; ">
+        <img src="/img/12.png" 
+             alt="KINGDOM590 Logo" 
+             class="logo-img">
+      </div>
+      
+      
+
+  <header>
+    <h1>آلة حساب كمية التسريعات</h1>
+    <p>أدخل عدد القطع لحساب الوقت الكلي</p>
+  </header>
+
+  
+  <form id="timeForm">
+    <!-- القسم الأول -->
+    <h2 style="text-align: center; color: #FFD700;">اكتب التسريعات الحرة</h2>
+    <div class="grid">
+      <div class="field">
+        <img src="/img/20230415_094718.jpg.jpeg" alt="15 دقيقة">
+        <input type="number" id="free15" placeholder="5M" min="0">
+        <label>15m</label>
+      </div>
+      <div class="field">
+        <img src="/img/5min.jpg.jpeg" alt="5 دقائق">
+        <input type="number" id="free5" placeholder="5M" min="0">
+        <label>5m</label>
+      </div>
+      <div class="field">
+        <img src="/img/1min.jpg.jpeg" alt="1 دقيقة">
+        <input type="number" id="free1" placeholder="1M" min="0">
+        <label>1m</label>
+      </div>
+      <div class="field">
+        <img src="/img/8h.jpg.jpeg" alt="8 ساعات">
+        <input type="number" id="free8h"placeholder="8H" min="0">
+        <label>8h</label>
+      </div>
+      <div class="field">
+        <img src="/img/1h.jpg.jpeg" alt="1 ساعة">
+        <input type="number" id="free1h" placeholder="1H" min="0">
+        <label>1h</label>
+      </div>
+      <div class="field">
+        <img src="/img/20230415_094952.jpg.jpeg" alt="30 دقيقة">
+        <input type="number" id="free30" placeholder="30M" min="0">
+        <label>30m</label>
+      </div>
+      <div class="field">
+        <img src="/img/24h.jpg.jpeg" alt="24 ساعة">
+        <input type="number" id="free24h" placeholder="24H" min="0">
+        <label>24h</label>
+      </div>
+      <div class="field">
+        <img src="/img/12h.jpeg" alt="12 ساعة">
+        <input type="number" id="free12h" placeholder="12H" min="0">
+        <label>12h</label>
+      </div>
+    </div>
+  
+    <!-- القسم الثاني -->
+    <h2 style="text-align: center; color: #FFD700; margin-top: 40px;">اكتب تسريعات التدريب</h2>
+    <div class="grid">
+      <div class="field">
+        <img src="/img//20230415_095731.jpg.jpeg" alt="15 دقيقة">
+        <input type="number" id="train15" placeholder="15M" min="0">
+        <label>15m</label>
+      </div>
+      <div class="field">
+        <img src="/img/5mt.jpeg" alt="5 دقائق">
+        <input type="number" id="train5"  placeholder="5M" min="0">
+        <label>5m</label>
+      </div>
+      <div class="field">
+        <img src="/img/1mint.jpg.jpeg" alt="1 دقيقة">
+        <input type="number" id="train1" placeholder="1M" min="0">
+        <label>1m</label>
+      </div>
+      <div class="field">
+        <img src="/img/2ht.jpg.jpeg" alt="2 ساعة">
+        <input type="number" id="train2h" placeholder="2H" min="0">
+        <label>2h</label>
+      </div>
+      <div class="field">
+        <img src="/img/1th.jpeg" alt="1 ساعة">
+        <input type="number" id="train1h" placeholder="1H" min="0">
+        <label>1h</label>
+      </div>
+      <div class="field">
+        <img src="/img/20230415_104935.jpg.jpeg" alt="30 دقيقة">
+        <input type="number" id="train30" placeholder="30M" min="0">
+        <label>30m</label>
+      </div>
+      <div class="field">
+        <img src="/img/8ht.jpg.jpeg" alt="8 ساعات">
+        <input type="number" id="train8h" placeholder="8H" min="0">
+        <label>8h</label>
+      </div>
+      <div class="field">
+        <img src="/img/12ht.jpg.jpeg" alt="12 ساعة">
+        <input type="number" id="train12h" placeholder="12H" min="0">
+        <label>12h</label>
+      </div>
+      <div class="field">
+        <img src="/img/24ht.jpg.jpeg" alt="24 ساعة">
+        <input type="number" id="train24h" placeholder="24H" min="0">
+        <label>24h</label>
+      </div>
+    </div>
+  
+    <div style="margin-top: 30px; text-align: center;">
+        <label for="secondsPerSoldier">⏱️ أدخل عدد الثواني اللازمة لتدريب جندي واحد:</label><br>
+        <input type="number" id="secondsPerSoldier" placeholder="ثواني" min="1" style="margin-top: 10px; padding: 5px; font-size: 1em; border-radius: 8px; text-align: center;">
+      </div>
+
+    <button type="button" onclick="calculateTotalTime()">احسب الوقت الكلي</button>
+    <div class="result" id="totalResult"></div>
+
+
+      
+  </form>
+  <p style="text-align: center; color: #FFD700; margin-top: 40px; font-size: 20px;">جميع الحقوق محفوظة لمملكة  590</p>
+  <script>
+    function calculateTotalTime() {
+      const timeValues = {
+        // تسريعات حرة
+        free1: 1,
+        free5: 5,
+        free15: 15,
+        free30: 30,
+        free1h: 60,
+        free8h: 480,
+        free12h: 720,
+        free24h: 1440,
+  
+        // تسريعات تدريب
+        train1: 1,
+        train5: 5,
+        train15: 15,
+        train30: 30,
+        train1h: 60,
+        train2h: 120,
+        train8h: 480,
+        train12h: 720,
+        train24h: 1440
+      };
+  
+      let freeTotal = 0;
+      let trainTotal = 0;
+  
+      for (const id in timeValues) {
+        const input = document.getElementById(id);
+        const count = input ? parseInt(input.value) || 0 : 0;
+        const minutes = count * timeValues[id];
+  
+        if (id.startsWith("free")) {
+          freeTotal += minutes;
+        } else if (id.startsWith("train")) {
+          trainTotal += minutes;
+        }
+      }
+  
+      // إجمالي الوقت
+      const totalMinutes = freeTotal + trainTotal;
+      const totalHours = Math.floor(totalMinutes / 60);
+      const remainingMinutes = totalMinutes % 60;
+  
+      // عرض الوقت
+      let resultHTML = `
+        <hr style="margin: 10px 0; border-color: #888;">
+        <p><strong>✅ الوقت الكلي لجميع التسريعات: ${totalHours} ساعة و ${remainingMinutes} دقيقة</strong></p>
+      `;
+  
+      // حساب عدد الجنود إذا وُجدت الثواني
+      const secondsPerSoldier = parseInt(document.getElementById("secondsPerSoldier").value);
+      if (!isNaN(secondsPerSoldier) && secondsPerSoldier > 0) {
+        const totalSecondsAvailable = totalMinutes * 60;
+        const soldiers = Math.floor(totalSecondsAvailable / secondsPerSoldier);
+  
+        resultHTML += `
+          <hr style="margin: 10px 0; border-color: #888;">
+          <p>👨‍✈️ يمكن تدريب <strong>${soldiers}</strong> جندي باستخدام الوقت الكلي المتاح.</p>
+        `;
+      }
+  
+      document.getElementById("totalResult").innerHTML = resultHTML;
+    }
+  </script>
+  
+  
+</body>
+</html>
