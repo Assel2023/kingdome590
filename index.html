@@ -1,175 +1,42 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>آلة حساب كمية التسريعة</title>
-  <style>
-    body {
-      font-family: 'Cairo', sans-serif;
-      background: linear-gradient(to bottom, #111, #222);
-      color: white;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-height: 100vh;
-    }
-
-    nav {
-        display: flex;
-  flex-direction: row-reverse;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-  background: transparent;
-  width: 100%;
-  box-sizing: border-box;
-  flex-wrap: wrap;
-
-}
-
-
-    nav a {
-      color: #FFD700;
-      margin-left: 20px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    header {
-      text-align: center;
-      margin-top: 80px;
-    }
-
-    h1 {
-      font-size: 2.5em;
-      color: #FFD700;
-      margin-bottom: 10px;
-    }
-
-        form {
-  background: #333;
-  padding: 30px 20px; /* 30px أعلى وأسفل، 20px يمين ويسار */
-  border-radius: 20px;
-  box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
-  max-width: 1000px;
-  width: 100%;
-  margin-top: 30px;
-  box-sizing: border-box; /* حتى لا يتجاوز العرض الكامل */
-}
-
-      
- 
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-      gap: 20px;
-      justify-items: center;
-    }
-
-    .field {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .field img {
-      width: 50px;
-      height: 50px;
-      margin-bottom: 5px;
-      border-radius: 10px;
-    }
-
-    .field input[type="number"] {
-      width: 70px;
-      padding: 5px;
-      border: none;
-      border-radius: 8px;
-      font-size: 1em;
-      text-align: center;
-    }
-
-    .field label {
-      margin-top: 5px;
-      font-size: 0.9em;
-      color: #FFD700;
-    }
-
-    button {
-      width: 100%;
-      padding: 15px;
-      font-size: 1.2em;
-      background-color: #FFD700;
-      border: none;
-      color: black;
-      font-weight: bold;
-      border-radius: 10px;
-      cursor: pointer;
-      margin-top: 30px;
-    }
-
-    .result {
-      margin-top: 20px;
-      font-size: 1.3em;
-      text-align: center;
-    }
-
-    .logo-img {
-    width: 25vw; /* 25% من عرض الشاشة */
-    max-width: 300px;
-    height: auto;
-}
-
-.logo-text {
-    color: gold;
-    font-size: 2.5vw; /* يتغير حسب حجم الشاشة */
-    font-weight: bold;
-    margin-top: 10px;
-    font-family: 'Cairo', sans-serif; /* خط عربي أنيق */
-}
-
-@media (max-width: 768px) {
-    .logo-img {
-        width: 100vw;
-    }
-    .logo-text {
-        font-size: 5vw;
-    }
-}
-  </style>
 </head>
-<body>
-    <nav style="display: flex; flex-direction: row-reverse; justify-content: space-between; align-items: center; width: 100%; padding: 20px 30px;">
-        <!-- الشعار في اليسار -->
-        <img src="img/ChatGPT Image Jun 9, 2025, 08_24_28 PM.png"
-        alt="KINGDOM590 Logo"
-        style="height: 80px; max-height: 15vh;">
- 
-   <!-- الروابط على اليمين -->
-   <div style="display: flex; gap: 15px; flex-wrap: wrap;">
-     <a href="index.html" style="color: #FFD700; text-decoration: none; font-weight: bold;">الرئيسية</a>
-     <a href="about.html" style="color: #FFD700; text-decoration: none; font-weight: bold;">من نحن</a>
-   </div>
-      </nav>
 
-      
-      <div style="text-align: center; ">
-        <img src="img/12.png" 
-             alt="KINGDOM590 Logo" 
-             class="logo-img">
-      </div>
-      
-      
+<body>
+  <nav
+    style="display: flex; flex-direction: row-reverse; justify-content: space-between; align-items: center; width: 100%; padding: 20px 30px;">
+    <!-- الشعار في اليسار -->
+    <img src="img/ChatGPT Image Jun 9, 2025, 08_24_28 PM.png" alt="KINGDOM590 Logo"
+      style="height: 80px; max-height: 15vh;">
+
+    <!-- الروابط على اليمين -->
+    <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+      <a href="index.html" style="color: #FFD700; text-decoration: none; font-weight: bold;">الرئيسية</a>
+      <!-- <a href="the_photo.html" style="color: #FFD700; text-decoration: none; font-weight: bold;">جداول وحساب</a> -->
+      <a href="about.html" style="color: #FFD700; text-decoration: none; font-weight: bold;">من نحن</a>
+    </div>
+  </nav>
+
+
+  <div style="text-align: center; ">
+    <img src="img/12.png" alt="KINGDOM590 Logo" class="logo-img">
+  </div>
+
+
 
   <header>
     <h1>آلة حساب كمية التسريعات</h1>
     <p>أدخل عدد القطع لحساب الوقت الكلي</p>
   </header>
 
-  
+
   <form id="timeForm">
     <!-- القسم الأول -->
     <h2 style="text-align: center; color: #FFD700;">اكتب التسريعات الحرة</h2>
@@ -191,7 +58,7 @@
       </div>
       <div class="field">
         <img src="img/8h.jpg.jpeg" alt="8 ساعات">
-        <input type="number" id="free8h"placeholder="8H" min="0">
+        <input type="number" id="free8h" placeholder="8H" min="0">
         <label>8h</label>
       </div>
       <div class="field">
@@ -215,9 +82,9 @@
         <label>12h</label>
       </div>
     </div>
-  
+
     <!-- القسم الثاني -->
-    <h2 style="text-align: center; color: #FFD700; margin-top: 40px;">اكتب تسريعات التدريب</h2>
+    <h2 style="text-align: center; color: #FFD700; margin-top: 40px; ">اكتب تسريعات التدريب</h2>
     <div class="grid">
       <div class="field">
         <img src="img//20230415_095731.jpg.jpeg" alt="15 دقيقة">
@@ -226,7 +93,7 @@
       </div>
       <div class="field">
         <img src="img/5mt.jpeg" alt="5 دقائق">
-        <input type="number" id="train5"  placeholder="5M" min="0">
+        <input type="number" id="train5" placeholder="5M" min="0">
         <label>5m</label>
       </div>
       <div class="field">
@@ -265,86 +132,186 @@
         <label>24h</label>
       </div>
     </div>
-  
-    <div style="margin-top: 30px; text-align: center;">
-        <label for="secondsPerSoldier">⏱️ أدخل عدد الثواني اللازمة لتدريب جندي واحد:</label><br>
-        <input type="number" id="secondsPerSoldier" placeholder="ثواني" min="1" style="margin-top: 10px; padding: 5px; font-size: 1em; border-radius: 8px; text-align: center;">
-      </div>
 
-    <button type="button" onclick="calculateTotalTime()">احسب الوقت الكلي</button>
+    <div style="margin-top: 30px; text-align: center;">
+      <label for="secondsPerSoldier">⏱️ أدخل عدد الثواني اللازمة لتدريب جندي واحد:</label><br>
+      <input type="number" id="secondsPerSoldier" placeholder="ثواني" min="1"
+        style="margin-top: 10px; padding: 5px; font-size: 1em; border-radius: 8px; text-align: center;">
+    </div>
+
+    <div style="margin-top: 20px; text-align: center;">
+      <label for="powerPerSoldier">⚔️ أدخل قوة الجندي الواحد عند التدريب:</label><br>
+      <input type="number" id="powerPerSoldier" placeholder="القوة" min="1"
+        style="margin-top: 10px; padding: 5px; font-size: 1em; border-radius: 8px; text-align: center;">
+    </div>
+
+    <div style="margin-top: 20px; text-align: center;">
+      <label for="soldierType">⚔️ اختر نوع الجندي لمعرفة تكلفة التدريب:</label><br>
+      <select id="soldierType"
+        style="margin-top: 10px; padding: 5px; font-size: 1em; border-radius: 8px; text-align: center;">
+        <option value="">-- اختر النوع --</option>
+        <option value="infantry">مشاه 12</option>
+        <option value="archer">رماه 12</option>
+      </select>
+    </div>
+
+    <div class="discount-field">
+      <label>
+        <input type="checkbox" id="fortDiscount"> 🏰 معقل التحالف (5%)
+      </label>
+    </div>
+
+    <div class="discount-field">
+      <p>🎯 خصم التهاني (اختر واحد فقط):</p>
+      <div class="radio-group" id="eventDiscounts">
+        <label class="radio-option"><input type="radio" name="eventDiscount" value="20">20%</label>
+        <label class="radio-option"><input type="radio" name="eventDiscount" value="25">25%</label>
+        <label class="radio-option"><input type="radio" name="eventDiscount" value="30">30%</label>
+        <label class="radio-option"><input type="radio" name="eventDiscount" value="35">35%</label>
+        <label class="radio-option"><input type="radio" name="eventDiscount" value="40">40%</label>
+        <label class="radio-option"><input type="radio" name="eventDiscount" value="0">بدون تهاني</label>
+
+      </div>
+    </div>
+
+    <div class="discount-field">
+      <label>🛡️ عتاد التدريب (%): <input type="number" id="gearDiscount" value="0" min="0" max="100"></label>
+    </div>
+
+
+    <button
+      style="font-family: 'Arial', sans-serif; background-color: #FFD700; color: #333; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer;"
+      type="button" onclick="calculateTotalTime()">احسب الوقت الكلي والتكلفة</button>
     <div class="result" id="totalResult"></div>
 
+    <div class="result" id="totalResult"></div>
+    <div class="result" id="costResult" style="margin-top: 20px; font-size: 1.2em; color: #FFD700; text-align: center;">
+    </div>
 
-      
   </form>
-  <p style="text-align: center; color: #FFD700; margin-top: 40px; font-size: 20px;">جميع الحقوق محفوظة لمملكة  590</p>
+  <p style="text-align: center; color: #FFD700; margin-top: 40px; font-size: 20px;">جميع الحقوق محفوظة لمملكة 590</p>
   <script>
     function calculateTotalTime() {
       const timeValues = {
-        // تسريعات حرة
-        free1: 1,
-        free5: 5,
-        free15: 15,
-        free30: 30,
-        free1h: 60,
-        free8h: 480,
-        free12h: 720,
-        free24h: 1440,
-  
-        // تسريعات تدريب
-        train1: 1,
-        train5: 5,
-        train15: 15,
-        train30: 30,
-        train1h: 60,
-        train2h: 120,
-        train8h: 480,
-        train12h: 720,
-        train24h: 1440
+        free1: 1, free5: 5, free15: 15, free30: 30, free1h: 60, free8h: 480, free12h: 720, free24h: 1440,
+        train1: 1, train5: 5, train15: 15, train30: 30, train1h: 60, train2h: 120, train8h: 480, train12h: 720, train24h: 1440
       };
-  
-      let freeTotal = 0;
-      let trainTotal = 0;
-  
+
+      let totalMinutes = 0;
+
       for (const id in timeValues) {
         const input = document.getElementById(id);
         const count = input ? parseInt(input.value) || 0 : 0;
-        const minutes = count * timeValues[id];
-  
-        if (id.startsWith("free")) {
-          freeTotal += minutes;
-        } else if (id.startsWith("train")) {
-          trainTotal += minutes;
-        }
+        totalMinutes += count * timeValues[id];
       }
-  
-      // إجمالي الوقت
-      const totalMinutes = freeTotal + trainTotal;
+
       const totalHours = Math.floor(totalMinutes / 60);
-      const remainingMinutes = totalMinutes % 60;
-  
-      // عرض الوقت
-      let resultHTML = `
-        <hr style="margin: 10px 0; border-color: #888;">
-        <p><strong>✅ الوقت الكلي لجميع التسريعات: ${totalHours} ساعة و ${remainingMinutes} دقيقة</strong></p>
-      `;
-  
-      // حساب عدد الجنود إذا وُجدت الثواني
+      let resultHTML = `<p><strong>✅ الوقت الكلي لجميع التسريعات: ${totalHours} ساعة</strong></p>`;
+
       const secondsPerSoldier = parseInt(document.getElementById("secondsPerSoldier").value);
+      let soldiers = 0;
+
       if (!isNaN(secondsPerSoldier) && secondsPerSoldier > 0) {
         const totalSecondsAvailable = totalMinutes * 60;
-        const soldiers = Math.floor(totalSecondsAvailable / secondsPerSoldier);
-  
-        resultHTML += `
-          <hr style="margin: 10px 0; border-color: #888;">
-          <p>👨‍✈️ يمكن تدريب <strong>${soldiers}</strong> جندي باستخدام الوقت الكلي المتاح.</p>
-        `;
+        soldiers = Math.floor(totalSecondsAvailable / secondsPerSoldier);
+        resultHTML += `<p>👨‍✈️ يمكن تدريب <strong>${formatNumber(soldiers)}</strong> جندي باستخدام الوقت الكلي المتاح.</p>`;
       }
-  
+
+      const powerPerSoldier = parseInt(document.getElementById("powerPerSoldier").value);
+      if (!isNaN(powerPerSoldier) && powerPerSoldier > 0 && soldiers > 0) {
+        const totalPower = soldiers * powerPerSoldier;
+        resultHTML += `<p>💪 القوة الإجمالية للجنود: <strong>${formatNumber(totalPower)}</strong></p>`;
+      }
+
+      // حساب التكلفة حسب نوع الجندي باستخدام 5 موارد
+      const soldierType = document.getElementById("soldierType").value;
+      let costPerSoldier = { wheat: 0, wood: 0, iron: 0, silver: 0, crystal: 0 };
+
+      if (soldierType === "infantry") {
+        costPerSoldier = {
+          wheat: 998,
+          wood: 497,
+          iron: 129,
+          silver: 30,
+          crystal: 20
+        };
+      } else if (soldierType === "archer") {
+        costPerSoldier = {
+          wheat: 1200,
+          wood: 547,
+          iron: 89,
+          silver: 25,
+          crystal: 20
+        };
+      }
+
+      // عدد الجنود المحسوب سابقًا
+      // مثال: let soldiers = 100;
+
+      if (soldiers > 0 && soldierType) {
+        // حساب نسبة الخصم
+        const isFortSelected = document.getElementById("fortDiscount").checked;
+        const fortDiscount = isFortSelected ? 5 : 0;
+
+        const eventDiscount = parseInt(document.querySelector('input[name="eventDiscount"]:checked')?.value || 0);
+
+        const gearDiscount = parseFloat(document.getElementById("gearDiscount").value) || 0;
+
+        const totalDiscountPercent = fortDiscount + eventDiscount + gearDiscount;
+
+        // اجمالي تكلفة الموارد بدون خصم
+        const totalCost = {
+          wheat: soldiers * costPerSoldier.wheat,
+          wood: soldiers * costPerSoldier.wood,
+          iron: soldiers * costPerSoldier.iron,
+          silver: soldiers * costPerSoldier.silver,
+          crystal: soldiers * costPerSoldier.crystal
+        };
+
+        // تطبيق الخصم
+        const discountedCost = {
+          wheat: totalCost.wheat * (1 - totalDiscountPercent / 100),
+          wood: totalCost.wood * (1 - totalDiscountPercent / 100),
+          iron: totalCost.iron * (1 - totalDiscountPercent / 100),
+          silver: totalCost.silver * (1 - totalDiscountPercent / 100),
+          crystal: totalCost.crystal * (1 - totalDiscountPercent / 100)
+        };
+
+        resultHTML += `
+  <hr style="margin: 10px 0; border-color: #888;">
+  <p>💰 تكلفة التدريب لكل الموارد بعد الخصم (${totalDiscountPercent}%):</p>
+  <ul style="list-style: none; padding: 0; font-weight: bold; color: #FFD700;">
+    <li><img src="img/snapedit_1749736929990.jpeg-removebg-preview.png" alt="قمح" style="width: 40px; vertical-align: middle;"> قمح: ${formatNumber(Math.ceil(discountedCost.wheat))}</li>
+    <li><img src="img/snapedit_1749736917252.jpeg-removebg-preview.png" alt="خشب" style="width: 40px; vertical-align: middle;"> خشب: ${formatNumber(Math.ceil(discountedCost.wood))}</li>
+    <li><img src="img/snapedit_1749736864904.jpeg-removebg-preview.png" alt="حديد" style="width: 40px; vertical-align: middle;"> حديد: ${formatNumber(Math.ceil(discountedCost.iron))}</li>
+    <li><img src="img/snapedit_1749736854280.jpeg-removebg-preview.png" alt="فضة" style="width: 40px; vertical-align: middle;"> فضة: ${formatNumber(Math.ceil(discountedCost.silver))}</li>
+    <li><img src="img/snapedit_1749736829649.jpeg-removebg-preview.png" alt="بلور" style="width: 40px; vertical-align: middle;"> بلور: ${formatNumber(Math.ceil(discountedCost.crystal))}</li>
+  </ul>
+`;
+
+      }
+
+
       document.getElementById("totalResult").innerHTML = resultHTML;
     }
+
+    function formatNumber(num) {
+      if (num >= 1_000_000_000) return (num / 1_000_000_000).toFixed(1).replace(/\.0$/, '') + 'B';
+      if (num >= 1_000_000) return (num / 1_000_000).toFixed(1).replace(/\.0$/, '') + 'M';
+      if (num >= 1_000) return (num / 1_000).toFixed(1).replace(/\.0$/, '') + 'K';
+      return num.toString();
+    }
+
+    window.onload = function () {
+      document.querySelectorAll("input[type='number']").forEach(input => input.value = "");
+      document.getElementById("totalResult").innerHTML = "";
+    };
   </script>
-  
-  
+
+
+
+
+
 </body>
+
 </html>

@@ -1,0 +1,198 @@
+body {
+    font-family: 'Cairo', sans-serif;
+    background: linear-gradient(to bottom, #111, #222);
+    color: white;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+  }
+
+  body, p {
+font-family: 'Cairo', sans-serif;
+font-size: 1.1em; /* حجم مناسب للقراءة */
+line-height: 1.6; /* لتحسين تباعد الأسطر */
+color: white; /* أو اللون اللي يناسب الخلفية */
+}
+
+  nav {
+      display: flex;
+flex-direction: row-reverse;
+justify-content: space-between;
+align-items: center;
+padding: 10px 20px;
+background: transparent;
+width: 100%;
+box-sizing: border-box;
+flex-wrap: wrap;
+
+}
+
+
+  nav a {
+    color: #FFD700;
+    margin-left: 20px;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  header {
+    text-align: center;
+    margin-top: 80px;
+  }
+
+  h1 ,h2{
+    font-family: 'Cairo', sans-serif;
+    font-size: 2.5em;
+    color: #FFD700;
+    margin-bottom: 10px;
+  }
+
+      form {
+background: #333;
+padding: 30px 20px; /* 30px أعلى وأسفل، 20px يمين ويسار */
+border-radius: 20px;
+box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+max-width: 1000px;
+width: 100%;
+margin-top: 30px;
+box-sizing: border-box; /* حتى لا يتجاوز العرض الكامل */
+}
+
+    
+
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 20px;
+    justify-items: center;
+  }
+
+  .field {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .field img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 5px;
+    border-radius: 10px;
+  }
+
+  .field input[type="number"] {
+    width: 70px;
+    padding: 5px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    text-align: center;
+  }
+
+  .field label {
+    margin-top: 5px;
+    font-size: 0.9em;
+    color: #FFD700;
+  }
+
+  button {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.2em;
+    background-color: #FFD700;
+    border: none;
+    color: black;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 30px;
+  }
+
+  .result {
+    margin-top: 20px;
+    font-size: 1.3em;
+    text-align: center;
+  }
+
+  .logo-img {
+  width: 25vw; /* 25% من عرض الشاشة */
+  max-width: 300px;
+  height: auto;
+}
+
+.logo-text {
+  color: gold;
+  font-size: 2.5vw; /* يتغير حسب حجم الشاشة */
+  font-weight: bold;
+  margin-top: 10px;
+  font-family: 'Cairo', sans-serif; /* خط عربي أنيق */
+}
+
+
+.centered-section {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.soldier-btns button {
+  margin: 5px;
+  padding: 8px 14px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.soldier-btns button.selected {
+  background-color: #4CAF50;
+  color: white;
+  font-weight: bold;
+}
+
+.discount-field {
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.radio-group {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.radio-option {
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+}
+
+.radio-option input[type="radio"] {
+  margin-right: 5px;
+  transform: scale(1.2);
+  accent-color: #4CAF50;
+}
+
+input[type="number"] {
+  width: 60px;
+  padding: 5px;
+  font-size: 13px;
+} 
+.discount-field {
+text-align: center; /* يجعل النص ومحتوى العنصر في المنتصف */
+margin: 10px auto;  /* يجعل الحاوية نفسها في المنتصف */
+}
+@media (max-width: 768px) {
+  .logo-img {
+      width: 100vw;
+  }
+  .logo-text {
+      font-size: 5vw;
+  }
+}

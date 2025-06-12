@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>معرض الصور - الألبومات والسلايدر</title>
+  <style>
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: linear-gradient(to bottom, #111, #222);
+      color: white;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    body, p {
+  font-family: 'Cairo', sans-serif;
+  font-size: 1.1em; /* حجم مناسب للقراءة */
+  line-height: 1.6; /* لتحسين تباعد الأسطر */
+  color: white; /* أو اللون اللي يناسب الخلفية */
+}
+
+
+    nav {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      width: 100%;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: #FFD700;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    header {
+      text-align: center;
+      margin-top: 40px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      color: #FFD700;
+      margin-bottom: 10px;
+    }
+
+    .slider {
+      position: relative;
+      width: 90vw;
+      max-width: 1000px;
+      height: 300px;
+      margin-bottom: 40px;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+    }
+
+    .slider img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      right: 0;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      border-radius: 20px;
+    }
+
+    .slider img.active {
+      opacity: 1;
+      position: relative;
+    }
+
+    .albums {
+      max-width: 1000px;
+      width: 90vw;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 20px;
+      margin-bottom: 50px;
+    }
+
+    .album-card {
+      background: #333;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+      overflow: hidden;
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .album-card:hover {
+      transform: scale(1.05);
+    }
+
+    .album-card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+    }
+
+    .album-title {
+      padding: 10px 5px;
+      color: #FFD700;
+      font-weight: bold;
+      font-size: 1.1em;
+    }
+
+    .logo-img {
+      width: 25vw;
+      max-width: 300px;
+      height: auto;
+      margin-top: 10px;
+    }
+
+    /* Modal لتكبير الصور */
+    #modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      z-index: 9999;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    #modal img {
+      max-width: 100vw;
+      max-height: 90vh;
+      border-radius: 10px;
+    }
+
+    .modal-controls {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 100vw;
+      padding: 10px 20px;
+      align-items: center;
+    }
+
+    .modal-controls button {
+      background-color: transparent;
+      color: #FFD700;
+      font-size: 2rem;
+      border: none;
+      cursor: pointer;
+      padding: 10px 20px;
+    }
+
+    #closeBtn {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      color: #FFD700;
+      font-size: 30px;
+      cursor: pointer;
+      z-index: 10000;
+    }
+
+    @media (max-width: 600px) {
+      .modal-controls button {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <img src="img/ChatGPT Image Jun 9, 2025, 08_24_28 PM.png" alt="KINGDOM590 Logo" style="height: 80px;" />
+    <div>
+      <a href="index.html">الرئيسية</a>
+      <a href="the_photo.html">جداول وحساب</a>
+      <a href="about.html">من نحن</a>
+    </div>
+  </nav>
+
+  <header>
+    <h1>معرض الصور</h1>
+    <p>تصفح السلايدر والألبومات</p>
+  </header>
+
+  <div class="slider" id="slider">
+    <img src="img/photo_2025-06-10_10-55-23.jpg" alt="صورة 1" class="active" />
+    <img src="img/slider2.jpg" alt="صورة 2" />
+    <img src="img/slider3.jpg" alt="صورة 3" />
+    <img src="img/slider4.jpg" alt="صورة 4" />
+  </div>
+
+  <div class="albums">
+    <div class="album-card" data-album="1">
+      <img src="img/20230415_094952.jpg.jpeg" alt="ألبوم 1" />
+      <div class="album-title">ألبوم 1</div>
+    </div>
+    <div class="album-card" data-album="2">
+      <img src="img/album2.jpg" alt="ألبوم 2" />
+      <div class="album-title">ألبوم 2</div>
+    </div>
+    <div class="album-card" data-album="3">
+      <img src="img/album3.jpg" alt="ألبوم 3" />
+      <div class="album-title">ألبوم 3</div>
+    </div>
+  </div>
+
+  <p style="text-align: center; color: #FFD700; margin-top: 40px; font-size: 20px;">جميع الحقوق محفوظة لمملكة 590</p>
+
+  <!-- Modal -->
+  <div id="modal">
+    <span id="closeBtn" onclick="closeModal()">✖</span>
+    <img id="modalImage" src="" alt="صورة الألبوم" />
+    <div class="modal-controls">
+      <button onclick="prevImage()">⬅️</button>
+      <button onclick="nextImage()">➡️</button>
+    </div>
+  </div>
+
+  <script>
+    // السلايدر
+    const slides = document.querySelectorAll('#slider img');
+    let currentIndex = 0;
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === index);
+      });
+    }
+    function nextSlide() {
+      currentIndex = (currentIndex + 1) % slides.length;
+      showSlide(currentIndex);
+    }
+    setInterval(nextSlide, 3000);
+
+    // صور الألبومات
+    const albumImages = {
+      1: ['img/20230415_094952.jpg.jpeg', 'img/photo_2025-06-10_10-55-23.jpg'],
+      2: ['img/album2_1.jpg', 'img/album2_2.jpg'],
+      3: ['img/album3_1.jpg', 'img/album3_2.jpg']
+    };
+
+    let currentAlbum = [];
+    let currentImgIndex = 0;
+
+    function openModal(albumId) {
+      currentAlbum = albumImages[albumId] || [];
+      currentImgIndex = 0;
+      showModalImage();
+      document.getElementById('modal').style.display = 'flex';
+    }
+
+    function showModalImage() {
+      const modalImg = document.getElementById('modalImage');
+      if (currentAlbum.length > 0) {
+        modalImg.src = currentAlbum[currentImgIndex];
+      }
+    }
+
+    function nextImage() {
+      if (currentAlbum.length > 0) {
+        currentImgIndex = (currentImgIndex + 1) % currentAlbum.length;
+        showModalImage();
+      }
+    }
+
+    function prevImage() {
+      if (currentAlbum.length > 0) {
+        currentImgIndex = (currentImgIndex - 1 + currentAlbum.length) % currentAlbum.length;
+        showModalImage();
+      }
+    }
+
+    function closeModal() {
+      document.getElementById('modal').style.display = 'none';
+    }
+
+    document.querySelectorAll('.album-card').forEach(card => {
+      card.addEventListener('click', () => {
+        const albumId = card.getAttribute('data-album');
+        openModal(albumId);
+      });
+    });
+  </script>
+</body>
+</html>
