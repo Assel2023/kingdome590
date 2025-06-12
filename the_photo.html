@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>معرض الصور - الألبومات والسلايدر</title>
@@ -24,6 +26,13 @@
   color: white; /* أو اللون اللي يناسب الخلفية */
 }
 
+
+h1 ,h2{
+    font-family: 'Cairo', sans-serif;
+    font-size: 2.5em;
+    color: #FFD700;
+    margin-bottom: 10px;
+  }
 
     nav {
       display: flex;
@@ -197,16 +206,20 @@
   </header>
 
   <div class="slider" id="slider">
-    <img src="img/photo_2025-06-10_10-55-23.jpg" alt="صورة 1" class="active" />
-    <img src="img/slider2.jpg" alt="صورة 2" />
-    <img src="img/slider3.jpg" alt="صورة 3" />
-    <img src="img/slider4.jpg" alt="صورة 4" />
+    <img src="img/12.png" alt="صورة 1" class="active" />
+    <img src="img/file-28VtXnYThQ769SUAg6c5nu.webp" alt="صورة 2" />
+    <img src="img/file-5THH9ii4jrQpFjVW16a3Ut.jpg" alt="صورة 3" />
+    <img src="img/file-855rnE4kg3prYzosGUaabS.webp" alt="صورة 4" />
+    <img src="img/file-D8HdmpMJcMZBK9QJV8jhVL (1).jpg" alt="صورة 5" />
+    <img src="img/file-H5JvXzEEuCcvtGxR4Jb517.webp" alt="6 صورة" />
+    <img src="img/file-UtNZeYDyRh3f24Nqy9JsdZ.webp" alt="صورة 7" />
+
   </div>
 
   <div class="albums">
     <div class="album-card" data-album="1">
-      <img src="img/20230415_094952.jpg.jpeg" alt="ألبوم 1" />
-      <div class="album-title">ألبوم 1</div>
+      <img src="img/photo_2025-06-12_18-32-26.jpg" alt="ألبوم 1" />
+      <div class="album-title"> خصائص ابطال الثكنة</div>
     </div>
     <div class="album-card" data-album="2">
       <img src="img/album2.jpg" alt="ألبوم 2" />
@@ -247,7 +260,7 @@
 
     // صور الألبومات
     const albumImages = {
-      1: ['img/20230415_094952.jpg.jpeg', 'img/photo_2025-06-10_10-55-23.jpg'],
+      1: ['img/photo_2025-06-12_18-24-45.jpg', 'img/photo_2025-06-12_18-24-54.jpg','img/photo_2025-06-12_18-24-49.jpg'],
       2: ['img/album2_1.jpg', 'img/album2_2.jpg'],
       3: ['img/album3_1.jpg', 'img/album3_2.jpg']
     };
