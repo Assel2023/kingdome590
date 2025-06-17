@@ -410,11 +410,27 @@ h1 ,h2{
     }
 
     document.querySelectorAll('.album-card').forEach(card => {
-      card.addEventListener('click', () => {
-        const albumId = card.getAttribute('data-album');
-        openModal(albumId);
-      });
-    });
+  card.addEventListener('click', () => {
+    const albumId = card.getAttribute('data-album');
+    window.history.pushState(null, "", `#album-${albumId}`); // تغيير الرابط
+    openModal(albumId); // فتح الألبوم
+  });
+});
+
+
+    // عند تحميل الصفحة تحقق من وجود هاش (album-...)
+window.addEventListener("DOMContentLoaded", () => {
+  const hash = window.location.hash;
+  if (hash.startsWith("#album-")) {
+    const albumId = hash.replace("#album-", "");
+    if (albumImages[albumId]) {
+      openModal(albumId);
+    }
+  }
+});
+
+
+
   </script>
 </body>
 </html>
