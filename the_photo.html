@@ -3,6 +3,7 @@
 <head>
   <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -189,6 +190,210 @@ h1 ,h2{
       z-index: 10000;
     }
 
+/* ✅ صورة واسم القائد بدون خلفية */
+.leader-info {
+  text-align: center;
+  margin-top: 25px;
+  font-family: 'Cairo', sans-serif;
+}
+
+.leader-photo {
+  width: 20vw;
+  height: 20vw;
+  max-width: 75px;
+  max-height: 75px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #FFD700;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
+  margin-bottom: 10px;
+}
+
+.leader-name {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #FFD700;
+  text-shadow: 0 0 5px rgba(255, 215, 0, 0.4);
+  margin-bottom: 15px;
+}
+
+
+/* ✅ الشريط المتحرك */
+.scroll-box-container {
+      width: 110%;
+      margin: 0 auto 30px;
+      height: 110px;
+      overflow: hidden;
+      position: relative;
+      background-color: transparent;
+      border-top: 3px solid #FFD700;
+      border-bottom: 3px solid #FFD700;
+      padding: 10px 0;
+      box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+      cursor: pointer;
+    }
+    .scroll-box-inner {
+  display: flex;
+  flex-direction: column;
+  animation: scrollUp 60s linear infinite;
+}
+
+.scroll-box-text {
+  font-size: 1.1em;
+  font-weight: 400;
+  color: #FFD700;
+  padding: 0 25px;
+  line-height: 2;
+  text-align: right;
+  text-shadow: 0 0 6px rgba(255, 215, 0, 0.5);
+}
+
+@keyframes scrollUp {
+  0% {
+    transform: translateY(0%);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+
+.scroll-box-inner {
+      display: flex;
+      flex-direction: column;
+      animation: scrollUp 50s linear infinite;
+    }
+
+.scroll-box-text {
+      font-size: 1.1em;
+      font-weight: 400;
+      color: #FFD700;
+      padding: 0 25px;
+      line-height: 2;
+      text-align: right;
+      text-shadow: 0 0 6px rgba(255, 215, 0, 0.5);
+    }
+
+
+
+.scroll-box-text p {
+  margin: 10px 0;
+}
+
+.scroll-box-text strong {
+  color: #fff;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+}
+
+.scroll-box-container:hover .scroll-box-text {
+  animation-play-state: paused;
+}
+@keyframes scrollUp {
+      0% {
+        transform: translateY(0%);
+      }
+      100% {
+        transform: translateY(-50%);
+      }
+    }
+
+/* ✅ النافذة المنبثقة */
+.popup-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+}
+
+.popup-box {
+  background: #111;
+  padding: 40px 25px;
+  border-radius: 20px;
+  max-width: 90%;
+  text-align: center;
+  font-family: 'Cairo', sans-serif;
+  font-size: 1.4em;
+  color: #FFD700;
+  position: relative;
+  box-shadow: 0 0 30px rgba(255, 215, 0, 0.4);
+  line-height: 1.8;
+  text-shadow: 0 0 5px rgba(255, 215, 0, 0.4);
+}
+
+.close-btn {
+  position: absolute;
+  top: 12px;
+  left: 15px;
+  font-size: 24px;
+  color: #FFD700;
+  cursor: pointer;
+  text-shadow: 0 0 6px rgba(255, 215, 0, 0.5);
+}
+
+.popup-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* مهم لتجنب تراكب */
+}
+
+.popup-box {
+  background: #111;
+  padding: 40px 25px;
+  border-radius: 20px;
+  max-width: 90%;
+  max-height: 90vh; /* ← تحديد أقصى ارتفاع */
+  overflow-y: auto; /* ← سكرول عمودي */
+  text-align: right;
+  font-family: 'Cairo', sans-serif;
+  font-size: 1.3em;
+  color: #FFD700;
+  position: relative;
+  box-shadow: 0 0 30px rgba(255, 215, 0, 0.4);
+  line-height: 2;
+  text-shadow: 0 0 5px rgba(255, 215, 0, 0.4);
+}
+
+@media (max-width: 600px) {
+  .scroll-box-container {
+    height: 80px; /* ← أقل للجوال */
+    padding: 5px 0;
+  }
+
+  .scroll-box-text {
+    font-size: 0.95em; /* ← تصغير النص */
+  }
+
+  .popup-box {
+    font-size: 1em;
+    padding: 25px 15px;
+  }
+}
+
+.hint-text {
+  text-align: center;
+  color: #FFD700;
+  font-size: 0.9em;
+  margin-bottom: 8px;
+  font-family: 'Cairo', sans-serif;
+  opacity: 0.85;
+  text-shadow: 0 0 4px rgba(255, 215, 0, 0.4);
+}
+
+
     @media (max-width: 600px) {
       .modal-controls button {
         font-size: 1.5rem;
@@ -207,6 +412,112 @@ h1 ,h2{
   </nav>
 
   <header>
+<!-- ✅ صورة القائد -->
+  <div class="leader-info">
+    <img src="img/photo_2025-06-20_21-09-11.jpg" alt="وجه القائد" class="leader-photo">
+    <div class="leader-name">كلمة القائد: رحال⁵⁹⁰</div>
+  </div>
+
+  <!-- ✅ الشريط المتحرك -->
+  <div class="hint-text">🟡 انقر على الكلمة لعرضها كاملة</div>
+
+  <div class="scroll-box-container" onclick="openPopup()">
+    <div class="scroll-box-inner">
+      <div class="scroll-box-text">
+        <p><strong>كلمة القائد رحال⁵⁹⁰ – Kingdom 590</strong></p>
+        <p>
+          مرحباً بكم في Kingdom 590… أرض العزة، وموطن السطوة.<br>
+          هنا لا تُروى الحكايات… بل تُصنع الملاحم.<br>
+          نحن المملكة التي تُرهِب، وتُحترم، وتُحسب لها ألف حساب.
+        </p>
+        <p>
+          قيادتنا ثبات، وجيشنا نار، وتحالفنا جدار لا يُخترق.<br>
+          في Kingdom 590، لا نعتمد على الحظ… بل على قوة العقول، وضربات لا ترحم.
+        </p>
+        <p>
+          نحن لا نبحث عن عدد… نحن نختار النُخبة.<br>
+          ومن أراد المجد، فليأتِ مستعداً… فهنا الرجال رجال، والقادة قادة.
+        </p>
+        <hr style="border: 1px dashed #FFD700; margin: 20px 0;">
+        <p><strong>قوانين وشروط الانضمام إلى Kingdom 590</strong></p>
+        <p>
+          🔸 الاحترام أولاً: الاحترام المتبادل بين جميع الأعضاء أساس لا نقاش فيه.<br>
+          🔸 الالتزام الجماعي: المشاركة الفعالة في الحروب والأحداث واجبة.<br>
+          🔸 التنسيق والاحتراف: لا مكان للعشوائية، كل تحرك بتنسيق مسبق.<br>
+          🔸 الولاء فوق كل شيء: من يخالف، يخرج دون تردد.<br>
+          🔸 نقبل النخبة فقط: نحن نفتح أبوابنا لمن يضيف قوة، لا لمن يطلب حماية.
+        </p>
+        <p><strong>إذا كنت ترى نفسك جديراً... فالميدان ينتظرك.</strong></p>
+      </div>
+
+      <!-- نسخة ثانية لنفس النص لعمل حركة لا نهائية -->
+      <div class="scroll-box-text">
+        <p><strong>كلمة القائد رحال⁵⁹⁰ – Kingdom 590</strong></p>
+        <p>
+          مرحباً بكم في Kingdom 590… أرض العزة، وموطن السطوة.<br>
+          هنا لا تُروى الحكايات… بل تُصنع الملاحم.<br>
+          نحن المملكة التي تُرهِب، وتُحترم، وتُحسب لها ألف حساب.
+        </p>
+        <p>
+          قيادتنا ثبات، وجيشنا نار، وتحالفنا جدار لا يُخترق.<br>
+          في Kingdom 590، لا نعتمد على الحظ… بل على قوة العقول، وضربات لا ترحم.
+        </p>
+        <p>
+          نحن لا نبحث عن عدد… نحن نختار النُخبة.<br>
+          ومن أراد المجد، فليأتِ مستعداً… فهنا الرجال رجال، والقادة قادة.
+        </p>
+        <hr style="border: 1px dashed #FFD700; margin: 20px 0;">
+        <p><strong>قوانين وشروط الانضمام إلى Kingdom 590</strong></p>
+        <p>
+          🔸 الاحترام أولاً: الاحترام المتبادل بين جميع الأعضاء أساس لا نقاش فيه.<br>
+          🔸 الالتزام الجماعي: المشاركة الفعالة في الحروب والأحداث واجبة.<br>
+          🔸 التنسيق والاحتراف: لا مكان للعشوائية، كل تحرك بتنسيق مسبق.<br>
+          🔸 الولاء فوق كل شيء: من يخالف، يخرج دون تردد.<br>
+          🔸 نقبل النخبة فقط: نحن نفتح أبوابنا لمن يضيف قوة، لا لمن يطلب حماية.
+        </p>
+        <p><strong>إذا كنت ترى نفسك جديراً... فالميدان ينتظرك.</strong></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ✅ النافذة المنبثقة -->
+  <div id="popup" class="popup-overlay" onclick="closePopup()">
+    <div class="popup-box" onclick="event.stopPropagation();">
+      <span class="close-btn" onclick="closePopup()">✖</span>
+
+      <p><strong>كلمة القائد رحال⁵⁹⁰ – Kingdom 590</strong></p>
+
+      <p>
+        مرحباً بكم في Kingdom 590… أرض العزة، وموطن السطوة.<br>
+        هنا لا تُروى الحكايات… بل تُصنع الملاحم.<br>
+        نحن المملكة التي تُرهِب، وتُحترم، وتُحسب لها ألف حساب.
+      </p>
+
+      <p>
+        قيادتنا ثبات، وجيشنا نار، وتحالفنا جدار لا يُخترق.<br>
+        في Kingdom 590، لا نعتمد على الحظ… بل على قوة العقول، وضربات لا ترحم.
+      </p>
+
+      <p>
+        نحن لا نبحث عن عدد… نحن نختار النُخبة.<br>
+        ومن أراد المجد، فليأتِ مستعداً… فهنا الرجال رجال، والقادة قادة.
+      </p>
+
+      <hr style="border: 1px dashed #FFD700; margin: 20px 0;">
+
+      <p><strong>قوانين وشروط الانضمام إلى Kingdom 590</strong></p>
+
+      <p>
+        🔸 الاحترام أولاً: الاحترام المتبادل بين جميع الأعضاء أساس لا نقاش فيه.<br>
+        🔸 الالتزام الجماعي: المشاركة الفعالة في الحروب والأحداث واجبة.<br>
+        🔸 التنسيق والاحتراف: لا مكان للعشوائية، كل تحرك بتنسيق مسبق.<br>
+        🔸 الولاء فوق كل شيء: من يخالف، يخرج دون تردد.<br>
+        🔸 نقبل النخبة فقط: نحن نفتح أبوابنا لمن يضيف قوة، لا لمن يطلب حماية.
+      </p>
+
+      <p><strong>إذا كنت ترى نفسك جديراً... فالميدان ينتظرك.</strong></p>
+    </div>
+  </div>
     <h1>معرض الصور</h1>
     <p>تصفح السلايدر والألبومات</p>
   </header>
@@ -275,21 +586,44 @@ h1 ,h2{
       <img src="img/IMG-20250616-WA0057.jpg" alt="ألبوم 13" />
       <div class="album-title">متطلبات المباني من الاوسمة المتقدمة من هيبة  1 الى 10</div>
     </div>
-  </div>
-
-  <div style="max-width: 300px; margin: 20px auto; font-family: 'Cairo', sans-serif;">
-    <div style="border-radius: 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); padding: 20px; text-align: center; background-color: #fff;">
-      <!-- <img src="img/app-icon.png" alt="App Icon" style="width: 80px; height: 80px; margin-bottom: 15px;"> -->
-      <p style="color: #555; font-size: 14px; margin-bottom: 20px;">
-        برنامج تخطي حظر مكالمات الاين
-      </p>
-      <a href="https://www.mediafire.com/file/8a560de5znk42d4/Psiphon_Pro_WHITESTORM_590.apk/file" target="_blank" style="text-decoration: none;">
-        <button type="button" style="background-color: #28a745; color: white; padding: 10px 20px; border: none; border-radius: 8px; font-size: 14px; cursor: pointer;">
-          تحميل التطبيق
-        </button>
-      </a>
+    <div class="album-card" data-album="14">
+      <img src="img/file_000000001b1c61f8a417b80a69b39b1b.png" alt="ألبوم 13" />
+      <div class="album-title">خصم التجربه + خصم المارد</div>
     </div>
   </div>
+
+  <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 20px; margin: 20px auto; font-family: 'Cairo', sans-serif;">
+
+    <!-- الصندوق الأول -->
+    <div style="width: 300px;">
+      <div style="border-radius: 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); padding: 20px; text-align: center; background-color: #fff;">
+        <p style="color: #555; font-size: 14px; margin-bottom: 20px;">
+          برنامج تخطي حظر مكالمات الاين
+        </p>
+        <a href="https://www.mediafire.com/file/8a560de5znk42d4/Psiphon_Pro_WHITESTORM_590.apk/file" target="_blank" style="text-decoration: none;">
+          <button type="button" style="background-color: #28a745; color: white; padding: 10px 20px; border: none; border-radius: 8px; font-size: 14px; cursor: pointer;">
+            تحميل التطبيق
+          </button>
+        </a>
+      </div>
+    </div>
+  
+    <!-- الصندوق الثاني -->
+    <div style="width: 300px;">
+      <div style="border-radius: 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); padding: 20px; text-align: center; background-color: #fff;">
+        <p style="color: #555; font-size: 14px; margin-bottom: 20px;">
+          برنامج النقر التلقائي
+        </p>
+        <a href="https://www.mediafire.com/file/fukbr2pyom7rf2j/Automatic_Clicker_4.6.10.apk/file" target="_blank" style="text-decoration: none;">
+          <button type="button" style="background-color: #28a745; color: white; padding: 10px 20px; border: none; border-radius: 8px; font-size: 14px; cursor: pointer;">
+            تحميل التطبيق
+          </button>
+        </a>
+      </div>
+    </div>
+  
+  </div>
+  
   
 
   <div style="text-align: center; margin-top: 30px;">
@@ -349,6 +683,7 @@ h1 ,h2{
       11: ['img/IMG-20250616-WA0039.jpg'],
       12: ['img/IMG-20250616-WA0043.jpg'],
       13: ['img/IMG-20250616-WA0045.jpg','img/IMG-20250616-WA0038.jpg'],
+      14: ['img/photo_2025-06-20_21-23-26.jpg'],
 
     };
 
@@ -429,6 +764,19 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+
+function openPopup() {
+  const popup = document.getElementById('popup');
+  popup.style.display = 'flex';
+
+  // ← التمرير لأعلى النص دائماً
+  const box = popup.querySelector('.popup-box');
+  box.scrollTop = 0;
+}
+function closePopup() {
+  const popup = document.getElementById('popup');
+  popup.style.display = 'none';
+}
 
 
   </script>
